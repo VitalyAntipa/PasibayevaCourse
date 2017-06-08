@@ -17,7 +17,7 @@ public class Main extends Application{
     public void start(Stage primaryStage) throws Exception {
 
         Parent root = FXMLLoader.load(getClass().getResource("../res/xml/interface.fxml"));
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, 800, 600);
         scene.getStylesheets().addAll(this.getClass().getResource("../res/css/style.css").toExternalForm());
         primaryStage.setTitle("MyPaintStudio");
         primaryStage.setScene(scene);

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="176.0" maxWidth="598.0" minHeight="176.0" minWidth="598.0" prefHeight="176.0" prefWidth="598.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextArea editable="false" focusTraversable="false" layoutX="1.0" layoutY="1.0" maxHeight="230.0" maxWidth="596.0" minHeight="161.0" minWidth="595.0" prefHeight="222.0" prefWidth="596.0" text="«My Draw Studio» -  it is a simple graphics editor, which allows to create, edit, save and load&#10;pictures in JPEG and PNG formats. Here you can find two main instruments: &#10;•  brush  -  allows you to draw on canvas with different colors;&#10;•  eraser – allow you to erase different parts of drawing;&#10;For changing color, you should use three sliders (Red Green Blue). Move sliders and watch&#10;how the color changes in a special circle in the center of the flower, which is above the sliders.&#10;For changing thickness, you should push the button with the four stripes. Every time you push&#10;this button, the size of the brush and eraser is changing.&#10;Have fun and make your ideas to become reality!" wrapText="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+         <font>
+            <Font size="12.7" />
+         </font></TextArea>
+   </children>
+</AnchorPane>

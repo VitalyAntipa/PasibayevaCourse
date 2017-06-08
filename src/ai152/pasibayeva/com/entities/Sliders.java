@@ -12,12 +12,15 @@ import javafx.scene.paint.Color;
 /**
  * Created by antipavitaly on 5/25/17.
  */
+
+//Класс для инициализации и настройки слайдеров
 public class Sliders{
-    Slider rSlider;
-    Slider gSlider;
-    Slider bSlider;
-    Slider opacitySlider;
-    Label colorLabel;
+    //Необходимые для работы поля
+    private  Slider rSlider;
+    private  Slider gSlider;
+    private Slider bSlider;
+    private Slider opacitySlider;
+    private Label colorLabel;
 
     private int red;
     private int green;
@@ -37,7 +40,7 @@ public class Sliders{
         return blue;
     }
 
-
+    //Конструктор, в котором происзодиз инициализация полей
     public Sliders(Slider rSlider, Slider gSlider, Slider bSlider, Slider opacitySlider, Label colorLabel, GraphicsContext gc) {
         this.rSlider = rSlider;
         this.gSlider = gSlider;
@@ -73,6 +76,11 @@ public class Sliders{
         return bSlider;
     }
 
+    /*
+    Метод, в котором происходит инициализация минимальных, максимальных,
+    а так же текущих значений слайдеров. А так же привязка нашего результирующего
+    цвета к colorLabel, чтобы пользователь смог увидеть какой цвет у него получился.
+     */
     private  void initSlider(Label colorLabel){
 
         rSlider.setMin(0);
@@ -97,15 +105,21 @@ public class Sliders{
 
     }
 
+    //Метод для добавления обработчиков событий для слайдеров
     public void addSliderListeners(GraphicsContext gc){
 
+        //Обработчик событий изменения значения слайдера, отвечающего за красный цвет
         rSlider.valueProperty().addListener((observable, oldValue, newValue) ->
         {
+            //Заносим новое значение слайдера в переменную
             red = newValue.intValue();
+            //Изменяем цвет кисти
             gc.setStroke(Color.rgb(red,green,blue,opacity));
+            //Заливаем фон colorLabel цветом, что получился в результате
             colorLabel.setBackground(new Background(new BackgroundFill(Color.rgb(red,green,blue), CornerRadii.EMPTY, Insets.EMPTY)));
         });
 
+        //Обработчик событий изменения значения слайдера, отвечающего за зеленый цвет
         gSlider.valueProperty().addListener((observable, oldValue, newValue) ->
         {
             green = newValue.intValue();
@@ -113,6 +127,7 @@ public class Sliders{
             colorLabel.setBackground(new Background(new BackgroundFill(Color.rgb(red,green,blue), CornerRadii.EMPTY, Insets.EMPTY)));
         });
 
+        //Обработчик событий изменения значения слайдера, отвечающего за синий цвет
         bSlider.valueProperty().addListener((observable, oldValue, newValue) ->
         {
             blue = newValue.intValue();
@@ -120,9 +135,12 @@ public class Sliders{
             colorLabel.setBackground(new Background(new BackgroundFill(Color.rgb(red,green,blue), CornerRadii.EMPTY, Insets.EMPTY)));
         });
 
+        //Обработчик событий изменения значения слайдера, отвечающего за прозрачность кисти
         opacitySlider.valueProperty().addListener((observable, oldValue, newValue) ->
         {
+            //Заносим новое значение слайдера в переменную
             opacity = newValue.doubleValue();
+            //Изменяем прозрачность кисти
             gc.setStroke(Color.rgb(red,green,blue,opacity));
         });
 

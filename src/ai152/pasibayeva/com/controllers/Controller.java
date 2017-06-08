@@ -20,57 +20,69 @@ import javafx.scene.layout.BorderPane;
  */
 public class Controller  {
 
+    //Ссылки на View объекты, которые мы описали в fxml файле
     @FXML
-    Canvas canvas;
+    private Canvas canvas;
 
     @FXML
-    AnchorPane canvasAnchorPane;
+    private AnchorPane canvasAnchorPane;
 
     @FXML
-    BorderPane pane;
+    private BorderPane pane;
 
     @FXML
-    Slider sliderR;
+    private Slider sliderR;
 
     @FXML
-    Slider sliderG;
+    private Slider sliderG;
 
     @FXML
-    Slider sliderB;
+    private  Slider sliderB;
 
     @FXML
-    Slider sliderOpacity;
+    private Slider sliderOpacity;
 
     @FXML
-    Button brushButton;
+    private Button brushButton;
 
     @FXML
-    Button eraserButton;
+    private Button eraserButton;
 
     @FXML
-    Button thicknessButton;
+    private  Button thicknessButton;
 
     @FXML
-    Label colorLabel;
+    private  Label colorLabel;
 
     @FXML
-    MenuItem saveCase;
+    private MenuItem saveCase;
 
     @FXML
-    MenuItem loadCase;
+    private  MenuItem loadCase;
 
     @FXML
-    MenuItem clearCase;
+    private  MenuItem clearCase;
+
+    @FXML
+    private  MenuItem aboutCase;
+
+    //Необходимые для работы поля
+    private MyCanvas myCanvas;
+    private Sliders sliders;
+    private Buttons btns;
+    private MyMenuBar menuBar;
 
     @FXML
     public void initialize(){
 
-        MyCanvas myCanvas = new MyCanvas(canvas, canvasAnchorPane);
+        //Инициализация объектов классов, в которых происходит инициализация и настройка View обьектов приложения
+         myCanvas = new MyCanvas(canvas, canvasAnchorPane);
         GraphicsContext gc = myCanvas.getGc();
-        Sliders sliders = new Sliders(sliderR, sliderG, sliderB,sliderOpacity ,colorLabel, gc );
-        Buttons btns = new Buttons(brushButton, eraserButton, thicknessButton,gc );
-        MyMenuBar menuBar = new MyMenuBar(clearCase,loadCase,saveCase,myCanvas.getCanvas());
+         sliders = new Sliders(sliderR, sliderG, sliderB,sliderOpacity ,colorLabel, gc );
+         btns = new Buttons(brushButton, eraserButton, thicknessButton,gc );
+         menuBar = new MyMenuBar(clearCase,loadCase,saveCase,aboutCase,myCanvas.getCanvas());
 
+         //инициализация обработчиков событий
         myCanvas.addCanvasListeners();
         sliders.addSliderListeners(gc);
         btns.addButtonsListeners(gc,sliders.getrSlider(), sliders.getgSlider(),sliders.getbSlider(),sliders.getOpacitySlider(),sliders.getRed(), sliders.getGreen(), sliders.getBlue());
